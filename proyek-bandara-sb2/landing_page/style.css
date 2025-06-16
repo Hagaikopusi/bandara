@@ -1,0 +1,364 @@
+:root {
+    --primary-color: #005A9E; 
+    --secondary-color: #FFC107;
+    
+    --dark-blue-bg: #005A9E; 
+    --dark-blue-highlight: #006BC3; 
+
+    --dark-blue-darker: #004C8F; 
+    --light-color: #ffffff;
+    --dark-text: #333;
+    --gray-text: #6c757d;
+
+    /* Warna baru untuk efek aurora */
+    --aurora-cyan: #00AEEF;
+    --aurora-deep-blue: #003D6B;
+}
+
+html { 
+    scroll-behavior: smooth; 
+}
+
+body {
+    background-color: var(--light-color);
+    color: var(--dark-text);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; 
+    background: #111;
+}
+
+.page-content {
+    flex-grow: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* === Desain Header Desktop (Logo Terpisah) === */
+
+.nav-logo {
+    position: absolute;
+    top: 15px;
+    left: 40px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.nav-logo img { 
+    height: 115px;
+    filter: 
+        drop-shadow(0.7px 0.7px 0 #fff)
+        drop-shadow(-0.7px -0.7px 0 #fff)
+        drop-shadow(0.7px -0.7px 0 #fff)
+        drop-shadow(-0.7px 0.7px 0 #fff);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.nav-logo:hover img {
+    transform: scale(1.08) rotate(-5deg); 
+    filter: 
+        drop-shadow(0.7px 0.7px 0 var(--secondary-color))
+        drop-shadow(-0.7px -0.7px 0 var(--secondary-color))
+        drop-shadow(0.7px -0.7px 0 var(--secondary-color))
+        drop-shadow(-0.7px 0.7px 0 var(--secondary-color));
+}
+
+.main-header {
+    width: auto; 
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(30, 45, 60, 0.5);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    position: absolute; 
+    z-index: 99;
+}
+
+.main-header .container { 
+    padding: 8px 22px;
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    position: relative;
+}
+
+/* === GAYA ANAK PANAH (LEBIH BESAR + STROKE) === */
+@keyframes point-pulse-right {
+    50% { transform: translateY(-50%) translateX(6px); }
+}
+@keyframes point-pulse-left {
+    50% { transform: translateY(-50%) translateX(-6px); }
+}
+
+.main-header::before,
+.main-header::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 0;
+    height: 0;
+    transform: translateY(-50%);
+    filter: 
+        drop-shadow(1.5px 0 0 #fff) 
+        drop-shadow(-1.5px 0 0 #fff) 
+        drop-shadow(0 1.5px 0 #fff) 
+        drop-shadow(0 -1.5px 0 #fff)
+        drop-shadow(0 0 8px var(--aurora-cyan));
+    transition: all 0.3s ease;
+}
+
+.main-header::before {
+    left: -32px;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 15px solid var(--aurora-cyan);
+    animation: point-pulse-right 1.5s infinite ease-in-out;
+}
+
+.main-header::after {
+    right: -32px;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-right: 15px solid var(--aurora-cyan);
+    animation: point-pulse-left 1.5s infinite ease-in-out;
+}
+
+.header-dynamic-title {
+    position: static;
+    transform: none;
+    font-size: 1.4rem; 
+    font-weight: 600;
+    white-space: nowrap; 
+    color: var(--light-color);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    transition: opacity 0.3s ease-out;
+}
+
+.title-is-changing {
+    opacity: 0;
+    transform: none; 
+}
+
+
+/* === BAGIAN KONTEN UTAMA === */
+#top-carousel-section {
+    position: relative; box-sizing: border-box; display: flex; flex-direction: column;
+    align-items: center; flex-grow: 1; justify-content: flex-start; 
+    padding: 100px 20px 40px; gap: 30px; 
+}
+.dynamic-background {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+    background-size: cover; background-position: center;
+    filter: blur(25px) brightness(0.6); transform: scale(1.1);
+    transition: background-image 0.5s ease-in-out;
+    background-image: url('https://dynamic.zacdn.com/zd_obbCvq4eiFVTGOFWIKUGMsmg=/filters:quality(70):format(webp)/https://static-id.zacdn.com/p/ralph-lauren-8086-5814073-4.jpg');
+}
+.dynamic-slide-title {
+    font-size: 2.5rem; color: #ffffff; font-weight: 700; text-align: center; margin: 0;
+    z-index: 2; text-shadow: 3px 3px 0px var(--dark-blue-darker), 5px 5px 15px rgba(0, 0, 0, 0.6);
+    transition: all 0.4s ease; margin-top: 10px;
+}
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-25px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes fadeOutUp { from { opacity: 1; transform: translateY(0) scale(1); } to { opacity: 0; transform: translateY(-25px) scale(0.95); } }
+.dynamic-slide-title.title-is-changing { animation: fadeOutUp 0.3s forwards; }
+@keyframes breathing-glow { 0% { text-shadow: 0 0 4px var(--aurora-cyan); opacity: 0.7; } 50% { text-shadow: 0 0 12px var(--aurora-cyan); opacity: 1; } 100% { text-shadow: 0 0 4px var(--aurora-cyan); opacity: 0.7; } }
+@keyframes aurora-shimmer { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+.swiper-container-3d, .swiper-slide { border-radius: 18px; }
+
+/* Lebar container disesuaikan untuk 3 slide */
+.swiper-container-3d { 
+    position: relative; 
+    z-index: 2; 
+    width: 100%; 
+    max-width: 650px;
+    height: 420px; 
+    flex-shrink: 0; 
+    overflow: hidden;
+}
+.swiper-slide { background-position: center; width: 240px; height: 380px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.3); position: relative; border: 1px solid rgba(255, 255, 255, 0.1); }
+.swiper-slide img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.swiper-slide .slide-caption { position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px 20px 20px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: var(--light-color); font-size: 1rem; font-weight: 600; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+
+/* === FOOTER === */
+.main-footer-simple { position: absolute; bottom: 0; left: 0; width: 100%; z-index: 100; color: var(--light-color); padding: 10px 0 20px 0; background: transparent; overflow: hidden; }
+.main-footer-simple::before { content: ''; position: absolute; bottom: -100px; left: -5%; width: 110%; height: 150px; background: rgba(10, 25, 40, 0.55); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-top: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3); border-radius: 50% / 100%; border-bottom-left-radius: 0; border-bottom-right-radius: 0; z-index: -1; }
+.main-footer-simple .container { max-width: 1300px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; gap: 20px; position: relative; z-index: 1; }
+.running-text-container { flex-grow: 1; overflow: hidden; background-color: rgba(0, 0, 0, 0.3); border-radius: 8px; height: 38px; display: flex; align-items: center; box-shadow: inset 0 2px 5px rgba(0,0,0,0.4); border: 1px solid rgba(255, 255, 255, 0.1); }
+
+/* === KODE RUNNING TEXT (SUDAH DIPERBAIKI) === */
+@keyframes seamless-marquee {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.running-text-content {
+    margin: 0;
+    padding: 0 10px;
+    white-space: nowrap;
+    color: var(--light-color);
+    font-weight: 500;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    animation: seamless-marquee 40s linear infinite;
+}
+
+#footer-clock-container, #footer-date-container { display: flex; align-items: center; gap: 10px; font-weight: 500; flex-shrink: 0; white-space: nowrap; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+#footer-clock-container { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.1rem; color: var(--light-color); text-shadow: 0 0 12px var(--secondary-color), 0 0 5px var(--secondary-color); }
+#footer-date-container { font-size: 0.9rem; color: var(--light-color); opacity: 0.9; }
+
+/* === TOMBOL LOGIN === */
+.login-button-container { position: absolute; bottom: 80px; left: 50%; transform: translateX(-50%); z-index: 10; opacity: 0; transform: translate(-50%, 150px); transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 1s ease; display: flex; flex-direction: column; align-items: center; gap: 15px; }
+.login-button-container.visible { opacity: 1; transform: translate(-50%, 0); }
+#login-countdown-text { font-size: 1rem; font-weight: 500; color: #fff; animation: breathing-glow 3s infinite ease-in-out; padding: 0; display: block; }
+
+.login-btn {
+    border: 1px solid rgba(0, 174, 239, 0.5);
+    outline: none;
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    gap: 10px;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: var(--light-color);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    background: linear-gradient(90deg, var(--aurora-deep-blue), var(--aurora-cyan), var(--aurora-deep-blue));
+    background-size: 200% auto;
+    animation: aurora-shimmer 4s linear infinite;
+    box-shadow: 0 10px 30px rgba(0, 174, 239, 0.3);
+    transition: all 0.2s ease-in-out;
+    /* Properti baru untuk hapus garis bawah */
+    text-decoration: none; 
+}
+
+.login-btn i { text-shadow: 0 0 5px rgba(0,0,0,0.3); }
+.login-btn:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(0, 174, 239, 0.5); animation-duration: 2s; }
+.login-btn:active { transform: translateY(1px); box-shadow: 0 4px 15px rgba(0, 174, 239, 0.4); animation-duration: 6s; }
+
+/* === MEDIA QUERIES (TELAH DIPERBAIKI) === */
+
+@media (max-width: 768px) {
+    .nav-logo {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 15px;
+    }
+    .nav-logo img {
+        height: 60px;
+    }
+    
+    .main-header { 
+        top: 85px;
+        width: 90%; 
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 20px; 
+    }
+    
+    .header-dynamic-title {
+        font-size: 1.2rem;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.4;
+    }
+
+    .main-header .container {
+        padding: 10px 15px;
+    }
+    
+    .main-header::before,
+    .main-header::after {
+        display: none;
+    }
+
+    #top-carousel-section { 
+        padding-top: 180px; 
+        gap: 20px;
+        justify-content: center;
+        padding-bottom: 180px; /* DIKURANGI */
+    }
+    
+    .dynamic-slide-title {
+        font-size: 1.8rem;
+        margin-top: 0;
+    }
+
+    /* DIUBAH */
+    .swiper-container-3d { height: 350px; max-width: 100%; }
+    .swiper-slide { width: 210px; height: 320px; }
+
+    .main-footer-simple .container { flex-direction: column; gap: 12px; }
+    .running-text-container { width: 100%; order: -1; }
+    .main-footer-simple { padding-bottom: 15px; }
+    .main-footer-simple::before { height: 180px; bottom: -120px; }
+    
+    .login-button-container {
+        bottom: 180px; /* DISESUAIKAN */
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-logo img { 
+        height: 55px; 
+    }
+    
+    .main-header {
+        top: 80px;
+        width: 90%;
+        border-radius: 15px;
+    }
+    
+    .header-dynamic-title { 
+        font-size: 1.0rem;
+    }
+
+    .main-header .container {
+        padding: 8px 12px;
+    }
+    
+    #top-carousel-section {
+        padding-top: 165px; 
+        padding-bottom: 160px; /* DIKURANGI */
+    }
+    
+    .dynamic-slide-title { font-size: 1.5rem; }
+    
+    /* DIUBAH */
+    .swiper-container-3d { height: 330px; }
+    .swiper-slide { width: 190px; height: 290px; }
+
+    .login-button-container {
+        bottom: 170px; /* DISESUAIKAN */
+    }
+}
+
+/* Lebar container disesuaikan untuk 3 slide (Desktop) */
+@media (min-width: 992px) {
+    .swiper-container-3d { 
+        max-width: 950px;
+        height: 460px; 
+    }
+    .swiper-slide { width: 330px; height: 420px; }
+    .dynamic-slide-title { font-size: 2.6rem; }
+    
+    #top-carousel-section { 
+        gap: 15px; 
+    }
+}

@@ -1,0 +1,347 @@
+:root {
+    --primary-color: #005A9E; 
+    --secondary-color: #FFC107;
+    --light-color: #ffffff;
+    --dark-text: #333;
+    --bg-dark: #111827;
+    --bg-light: #1F2937;
+    --border-color: #374151;
+    --success-color: #22c55e;
+    --error-color: #ef4444;
+    --pending-color: #f59e0b;
+    --approved-color: #10b981;
+    --rejected-color: var(--error-color);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--light-color);
+    margin: 0;
+}
+
+.page-header {
+    background-color: var(--bg-light);
+    padding: 15px 30px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.page-header .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* Style Baru untuk grup info di header */
+.header-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+#current-date {
+    font-size: 0.95rem;
+    color: #d1d5db;
+    font-weight: 500;
+}
+
+.header-btn {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.header-btn:hover {
+    background-color: #006BC3;
+}
+
+.main-container {
+    padding: 40px 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-box {
+    background-color: var(--bg-light);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.form-box h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+.form-box p {
+    margin-bottom: 25px;
+    color: #9ca3af;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.input-group input:not(.file-input) {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--light-color);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.input-hint {
+    font-size: 0.85rem;
+    color: #9ca3af;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    padding-left: 2px;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--light-color);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.file-input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.file-input-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    background-color: #374151;
+    color: var(--light-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.file-input-label:hover {
+    background-color: #4b5563;
+}
+.file-input-label i {
+    font-size: 1.1em;
+}
+
+.image-preview-container {
+    margin-bottom: 20px;
+}
+.image-preview {
+    width: 100%;
+    max-width: 250px;
+    max-height: 250px;
+    border-radius: 8px;
+    border: 2px dashed var(--border-color);
+    display: none;
+    object-fit: cover;
+}
+.image-preview-container.active .image-preview {
+    display: block;
+}
+
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background-color: var(--secondary-color);
+    color: var(--dark-text);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #ffcd39;
+}
+
+.message {
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    display: none;
+}
+.message.success {
+    background-color: #166534;
+    color: var(--light-color);
+    border: 1px solid var(--success-color);
+}
+.message.error {
+    background-color: #991b1b;
+    color: var(--light-color);
+    border: 1px solid var(--error-color);
+}
+
+.status-section {
+    margin-top: 50px;
+    background-color: var(--bg-light);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.status-section h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+.promo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.status-card {
+    background-color: var(--bg-dark);
+    border-left: 5px solid var(--border-color);
+    padding: 15px 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.status-card-info {
+    flex-grow: 1;
+}
+
+.status-card-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.status-card-info p {
+    font-size: 0.9rem;
+    color: #9ca3af;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.status-tag {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--light-color);
+    flex-shrink: 0;
+}
+
+.status-tag.pending {
+    background-color: var(--pending-color);
+}
+
+.status-tag.approved {
+    background-color: var(--approved-color);
+}
+
+.status-tag.countdown {
+    background-color: var(--approved-color);
+}
+
+.status-tag.expired {
+    background-color: var(--error-color);
+}
+
+.status-tag.rejected {
+    background-color: var(--rejected-color);
+}
+
+.status-card-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.rejection-reason {
+    background-color: rgba(239, 68, 68, 0.1);
+    border-left: 3px solid var(--rejected-color);
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #fca5a5;
+    width: 100%;
+}
+
+.rejection-reason strong {
+    color: #fecaca;
+}
+
+.revise-btn {
+    background-color: var(--secondary-color);
+    color: var(--dark-text);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s;
+    align-self: flex-start;
+}
+
+.revise-btn:hover {
+    background-color: #ffda73;
+}
+
+.empty-message {
+    color: #6b7280;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}

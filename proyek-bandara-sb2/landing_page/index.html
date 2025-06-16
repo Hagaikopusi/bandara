@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Datang di Bandara Internasional Kualanamu</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="../login.html" class="nav-logo">
+        <img src="kualanamu.png" alt="Logo Kualanamu">
+    </a>
+
+    <header class="main-header">
+        <div class="container">
+            <h2 id="header-slide-title" class="header-dynamic-title">Promo Saat Ini</h2>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <section id="top-carousel-section">
+            <div class="dynamic-background"></div>
+            <h2 class="dynamic-slide-title"></h2>
+            <div class="swiper-container-3d">
+                <div class="swiper-wrapper">
+                </div>
+            </div>
+            
+            <div class="login-button-container" id="loginContainer">
+                <span id="login-countdown-text"></span>
+                <a href="../login.html" class="login-btn">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <span>Login</span> 
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="main-footer-simple">
+        <div class="container">
+            <div id="footer-date-container">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span id="footer-date"></span>
+            </div>
+            <div class="running-text-container">
+                <p class="running-text-content">
+                    Selamat datang di Bandara Internasional Kualanamu. Selalu patuhi protokol kesehatan dan jaga jarak aman. || Nikmati berbagai promo menarik di area keberangkatan. || Informasi penerbangan dapat berubah sewaktu-waktu, mohon periksa kembali jadwal Anda pada layar informasi yang tersedia.
+                </p>
+            </div>
+            <div id="footer-clock-container">
+                <i class="fa-regular fa-clock"></i>
+                <span id="footer-clock"></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
